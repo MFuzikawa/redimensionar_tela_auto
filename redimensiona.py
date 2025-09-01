@@ -41,7 +41,7 @@ def monitorar_opera():
 
     print(f"Segunda tela definida em {config_tela['width']}x{config_tela['height']} na posição ({config_tela['x']}, {config_tela['y']})")
     print("Monitorando as janelas do Opera GX...")
-    print("Pressione Ctrl+C no terminal para interromper.")
+    print("Interrompa no gerenciador de tarefas.")
 
     try:
         while True:
