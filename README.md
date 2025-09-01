@@ -14,7 +14,7 @@ O script que desenvolvi age como um "vigilante" ele constantemente checa se a ja
  se isso acontecer, ele a força a voltar para a posição correta e a redimensiona.
 
  ## como o Script Funciona na Prática
-Monitoramento: O script roda em segundo plano. A cada poucos segundos (time.sleep(2)), 
+Monitoramento: O script roda em segundo plano. A cada poucos segundos (time.sleep(10)), 
 ele verifica a posição e o tamanho da janela do Opera GX.
 
 Detecção de Mudança: Ele compara a posição e o tamanho atuais da janela com os que deveriam
@@ -35,7 +35,7 @@ Acesso à internet para baixar o aplicativo.
 Passo 1: Baixar o Aplicativo
 Copie o repositorio do github
 
-na pasta da aplicação vc encontrará uma pasta chamada build dentro dela um arquivo chamado  redimensiona.exe 
+na pasta da aplicação vc encontrará uma pasta chamada build dentro dela um arquivo chamado Application.exe 
 Salve-o em uma pasta que você possa encontrar facilmente, como a sua área de trabalho ou a pasta Documentos.
 
 Passo 2: Usar o Aplicativo
@@ -45,7 +45,7 @@ O aplicativo vai começar a rodar em segundo plano, monitorando a janela do Oper
 
 Se a janela do Opera GX for movida ou redimensionada, o aplicativo a forçará a voltar para a segunda tela.
 
-Para verificar se o aplicativo está rodando, abra o Gerenciador de Tarefas (Ctrl + Shift + Esc) e procure por redimensiona.exe na lista de processos.
+Para verificar se o aplicativo está rodando, abra o Gerenciador de Tarefas (Ctrl + Shift + Esc) e procure por Application.exe na lista de processos.
 
 Passo 3: Parar o Aplicativo
 Para parar o monitoramento, basta fechar o processo no Gerenciador de Tarefas:
