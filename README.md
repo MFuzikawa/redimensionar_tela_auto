@@ -13,6 +13,9 @@ usei as bibliotecas pyinstaller, pyautogui, pygetwindow
 O script que desenvolvi age como um "vigilante" ele constantemente checa se a janela do Opera GX foi movida ou redimensionada e
  se isso acontecer, ele a força a voltar para a posição correta e a redimensiona.
 
+ ![Uploading image.png…]()
+
+
  ## como o Script Funciona na Prática
 Monitoramento: O script roda em segundo plano. A cada poucos segundos (time.sleep(10)), 
 ele verifica a posição e o tamanho da janela do Opera GX.
