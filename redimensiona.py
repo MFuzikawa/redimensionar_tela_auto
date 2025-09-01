@@ -36,4 +36,23 @@ def reposicionar_opera(x ,y , w , h):
         return False
     
 
+def monitorar_opera():
+    x, y, w, h = fixar_opera_segunda_tela()
+    if not x:
+        return
+    
+    print(f"Segunda tela definida em{w}x{h} posição ({x}, {y})")
+    while True:
+        janelas = gw.getWindowsWithTitle("Opera GX")
+        if janelas:
+            janela = janelas[0]
 
+            if (janela.left != x or janela.top != y or
+                janela.width != w or janela.height != h):
+                print("Corrigindo posição do Opera GX...")
+                reposicionar_opera(x, y, w, h)
+
+
+
+if __name__ == "__main__":
+    monitorar_opera()
