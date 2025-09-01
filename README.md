@@ -13,7 +13,7 @@ usei as bibliotecas pyinstaller, pyautogui, pygetwindow
 O script que desenvolvi age como um "vigilante" ele constantemente checa se a janela do Opera GX foi movida ou redimensionada e
  se isso acontecer, ele a força a voltar para a posição correta e a redimensiona.
 
- ![Uploading image.png…]()
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/437860f0-f56b-4b43-bfbf-195b1473d0cb" />
 
 
  ## como o Script Funciona na Prática
