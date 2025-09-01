@@ -1,3 +1,6 @@
+import pygetwindow as gw
+from screeninfo import get_monitors
+import time
 
 def obter_config_segunda_tela():
     monitores = get_monitors()
