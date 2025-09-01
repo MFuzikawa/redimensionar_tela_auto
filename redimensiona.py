@@ -1,7 +1,7 @@
 import pygetwindow as gw
-import keyboard
 from screeninfo import get_monitors
 import time
+import platform
 
 def obter_config_segunda_tela():
     monitores = get_monitors()
@@ -17,15 +17,14 @@ def obter_config_segunda_tela():
         "height": segunda_tela.height
     }
 
-def reposicionar_opera_segunda_tela(config_tela):
-    janelas = gw.getWindowsWithTitle("Opera GX")
-    if not janelas:
-        return False
-
-    janela = janelas[0]
+def reposicionar_janela(janela, config_tela):
     try:
-        janela.activate()
-        time.sleep(0.5)  
+        if janela.isMinimized:
+            janela.restore()  
+
+        if (janela.left == config_tela["x"] and janela.top == config_tela["y"] and
+            janela.width == config_tela["width"] and janela.height == config_tela["height"]):
+            return True 
 
         janela.moveTo(config_tela["x"], config_tela["y"])
         janela.resizeTo(config_tela["width"], config_tela["height"])
@@ -41,30 +40,38 @@ def monitorar_opera():
         return
 
     print(f"Segunda tela definida em {config_tela['width']}x{config_tela['height']} na posição ({config_tela['x']}, {config_tela['y']})")
-    print("Monitorando a janela do Opera GX...")
+    print("Monitorando as janelas do Opera GX...")
     print("Pressione Ctrl+C no terminal para interromper.")
 
     try:
         while True:
-            janelas = gw.getWindowsWithTitle("Opera GX")
-            
-            if janelas:
-                janela = janelas[0]
-                
-                if (janela.left != config_tela["x"] or janela.top != config_tela["y"] or
-                    janela.width != config_tela["width"] or janela.height != config_tela["height"]):
-                    
-                    print("Posição/tamanho do Opera GX foi alterado. Corrigindo...")
-                    sucesso = reposicionar_opera_segunda_tela(config_tela)
-                    if not sucesso:
-                        print("Não foi possível corrigir. Tentando novamente...")
-            
+            janelas_opera = []
+            for janela in gw.getAllWindows():
+                if janela.title and "Opera" in janela.title:
+                    janelas_opera.append(janela)
+                elif platform.system() == "Windows" and janela._hWnd:
+
+                    class_name = gw._getWindowClassName(janela._hWnd)
+                    if class_name and "Opera" in class_name:
+                        janelas_opera.append(janela)
+
+            if janelas_opera:
+                for janela in janelas_opera:
+                    sucesso = reposicionar_janela(janela, config_tela)
+                    if sucesso:
+                        print(f"Janela '{janela.title}' ajustada com sucesso.")
+                    else:
+                        print(f"Não foi possível ajustar a janela '{janela.title}'.")
+            else:
+                print("Nenhuma janela do Opera encontrada.")
+
             time.sleep(2)
 
     except KeyboardInterrupt:
         print("\nScript interrompido pelo usuário.")
     except Exception as e:
         print(f"Ocorreu um erro inesperado: {e}")
+
 
 if __name__ == "__main__":
     monitorar_opera()
