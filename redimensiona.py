@@ -1,6 +1,3 @@
-import pygetwindow as gw
-from screeninfo import get_monitors
-import time
 
 def obter_config_segunda_tela():
     monitores = get_monitors()
@@ -56,7 +53,7 @@ def monitorar_opera():
             else:
                 print("Nenhuma janela do Opera encontrada.")
 
-            time.sleep(2)
+            time.sleep(10)
 
     except KeyboardInterrupt:
         print("\nScript interrompido pelo usuário.")
