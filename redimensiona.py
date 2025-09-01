@@ -53,7 +53,7 @@ def monitorar_opera():
 
                     class_name = gw._getWindowClassName(janela._hWnd)
                     if class_name and "Opera" in class_name:
-                        janelas_opera.append(janela)
+                        janelas_opera = [janela for janela in gw.getAllWindows() if janela.title and "Opera" in janela.title]
 
             if janelas_opera:
                 for janela in janelas_opera:
