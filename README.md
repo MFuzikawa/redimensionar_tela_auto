@@ -41,19 +41,10 @@ Salve-o em uma pasta que você possa encontrar facilmente, como a sua área de t
 Passo 2: Usar o Aplicativo
 É muito simples. Basta dar um duplo clique no arquivo .exe que você baixou.
 
-O aplicativo vai começar a rodar em segundo plano, monitorando a janela do Opera GX.
-
 Se a janela do Opera GX for movida ou redimensionada, o aplicativo a forçará a voltar para a segunda tela.
 
 Para verificar se o aplicativo está rodando, abra o Gerenciador de Tarefas (Ctrl + Shift + Esc) e procure por Application.exe na lista de processos.
 
 Passo 3: Parar o Aplicativo
-Para parar o monitoramento, basta fechar o processo no Gerenciador de Tarefas:
-
-Abra o Gerenciador de Tarefas (Ctrl + Shift + Esc).
-
-Procure por monitora_opera.exe na lista de processos.
-
-Clique com o botão direito do mouse sobre ele e selecione Finalizar tarefa.
-
+Para parar o monitoramento, basta usar o atalho ctrl + c ou fechar o terminal
 O aplicativo será encerrado, e a janela do Opera GX não será mais monitorada.
